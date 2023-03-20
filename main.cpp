@@ -704,9 +704,17 @@ int sukcesivna_pretraga(Cvor *root) {
 }
 
 Cvor *read_file() {
+    int num;
     string name;
-    cout << "Unesite ime fajla iz kog se citaju podaci(CustomerAccount20.txt,CustomerAccount250.txt,CustomerAccount2500.txt): ";
-    cin >> name;
+    cout << "Unesite kolicinu podataka u fajlu iz kog se citaju podaci(20,250,2500): ";
+    cin >> num;
+    if (num == 20) {
+        name = "CustomerAccount20.txt";
+    } else if (num == 250) {
+        name = "CustomerAccount250.txt";
+    } else {
+        name = "CustomerAccount2500.txt";
+    }
     ifstream file(name);
     while (!file.is_open()) {
         cout << "Ne postoji datoteka koju trazite";
